@@ -35,10 +35,8 @@ jobs:
         uses: actions/configure-pages@v5
       
       - name: Generate pages
-        env:
-          PAGES: ${{ secrets.PAGES }}
         run: |
-          echo $PAGES > pages
+          echo "${{ secrets.PAGES }}" > pages
           python3 generate-html.py
 
       - name: Upload artifact
